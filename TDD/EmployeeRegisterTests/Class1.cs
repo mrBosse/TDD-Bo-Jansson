@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ValidationEngine
+namespace EmployeeRegisterTests
 {
-    public class Program
+    public class Class1
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }

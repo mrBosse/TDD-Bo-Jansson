@@ -1,16 +1,28 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace ValidationEngine
 {
-    public class Validator
+    public class Validator 
     {
         public Validator()
         {
         }
 
-        internal object ValidateEmailAdress(string v)
+        public bool ValidateEmailAdress(string v)
         {
-            throw new NotImplementedException();
+            return true;
+        }
+
+        public bool ValidateAtSign(string v)
+        {
+            if (Regex.IsMatch(v, @"@"))
+            {
+                return true;
+            }
+            else return false;
+
+
         }
     }
 }

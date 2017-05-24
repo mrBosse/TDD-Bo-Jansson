@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ValidationEngine;
 
-namespace ValidationEngine
+namespace ValidationEngineTests
+     
 {
     [TestFixture]
-    public class ValidationTests
+    public class ValidationTests 
     {
         private static string[] errorEmails()
         {
@@ -31,11 +33,25 @@ namespace ValidationEngine
 
             //act part
             var result = sut.ValidateEmailAdress("mike@edmunt.com");
-            var result2 = sut.ValidateEmailAdress("joe@apple.com");
+            //var result2 = sut.ValidateEmailAdress("joe@apple.com");
 
             //assert part
             Assert.IsTrue(result);
-            Assert.IsTrue(result2);
+            //Assert.IsTrue(result2);
+        }
+        [Test]
+        public void FalseForMissingAtSign()
+        {
+            //arrange part  
+            var sut = new Validator();
+
+            //act part
+            var result = sut.ValidateAtSign("mikeedmunt.com");
+            //var result2 = sut.ValidateEmailAdress("joe@apple.com");
+
+            //assert part
+            Assert.IsFalse(result);
+            //Assert.IsTrue(result2);
         }
     }
 }
