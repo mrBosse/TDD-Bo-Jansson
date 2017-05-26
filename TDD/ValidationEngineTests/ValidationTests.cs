@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 using ValidationEngine;
 
 namespace ValidationEngineTests
-     
+
 {
     [TestFixture]
-    public class ValidationTests 
+    public class ValidationTests
     {
         private static string[] errorEmails()
         {
@@ -37,7 +37,7 @@ namespace ValidationEngineTests
 
             //assert part
             Assert.IsTrue(result);
-            //Assert.IsTrue(result2);
+            //Assert.IsTrue(result2);a
         }
         [Test]
         public void FalseForMissingAtSign()
@@ -46,12 +46,81 @@ namespace ValidationEngineTests
             var sut = new Validator();
 
             //act part
-            var result = sut.ValidateAtSign("mikeedmunt.com");
+            var result = sut.ValidateEmailAdress("mikeedmunt.com");
             //var result2 = sut.ValidateEmailAdress("joe@apple.com");
 
             //assert part
             Assert.IsFalse(result);
             //Assert.IsTrue(result2);
+        }
+        [Test]
+        public void FalseForMissingNullOrMissingAdress()
+        {
+            //arrange part  
+            var sut = new Validator();
+
+            //act part
+            var result = sut.ValidateEmailAdress(null);
+
+
+            //assert part
+            Assert.IsFalse(result);
+
+        }
+        [Test]
+        public void FalseForMissingDotCom()
+        {
+            //arrange part  
+            var sut = new Validator();
+
+            //act part
+            var result = sut.ValidateEmailAdress("Test.com");
+
+
+            //assert part
+            Assert.IsFalse(result);
+
+        }
+        [Test]
+        public void FalseForBeingEmpty()
+        {
+            //arrange part  
+            var sut = new Validator();
+
+            //act part
+            var result = sut.ValidateEmailAdress("");
+
+
+            //assert part
+            Assert.IsFalse(result);
+
+        }
+        [Test]
+        public void FalseForContainingNumbers()
+        {
+            //arrange part  
+            var sut = new Validator();
+
+            //act part
+            var result = sut.ValidateEmailAdress("Name2015@test.com");
+
+
+            //assert part
+            Assert.IsTrue(result);
+
+        }
+        [Test]
+        public void FalseForMissingDotInDotCom()
+        {
+            //arrange part  
+            var sut = new Validator();
+
+            //act part
+            var result = sut.ValidateEmailAdress("name.text@com");
+
+
+            //assert part
+            Assert.IsFalse(result);
         }
     }
 }

@@ -5,24 +5,22 @@ namespace ValidationEngine
 {
     public class Validator 
     {
-        public Validator()
-        {
-        }
+        private string validemail = @"(\b[a-zA-Z](?!.*0-9).*@.*\.com\b)";
 
-        public bool ValidateEmailAdress(string v)
+        public bool ValidateEmailAdress(string tryingemailaddress)
         {
-            return true;
-        }
 
-        public bool ValidateAtSign(string v)
-        {
-            if (Regex.IsMatch(v, @"@"))
+            if (string.IsNullOrEmpty(tryingemailaddress))
             {
-                return true;
+                return false;
             }
-            else return false;
+            var resultMatch = Regex.IsMatch(tryingemailaddress, validemail);
+            return resultMatch;
 
 
         }
+        
+
+         
     }
 }
