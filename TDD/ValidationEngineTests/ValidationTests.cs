@@ -26,7 +26,7 @@ namespace ValidationEngineTests
         }
 
         [Test]
-        public void TrueForValidAddress()
+        public void TrueForValidEmailAddress()
         {
             //arrange part  
             var sut = new Validator();
@@ -40,7 +40,7 @@ namespace ValidationEngineTests
             //Assert.IsTrue(result2);a
         }
         [Test]
-        public void FalseForMissingAtSign()
+        public void FalseForEmailAddressMissingAtSign()
         {
             //arrange part  
             var sut = new Validator();
@@ -54,7 +54,7 @@ namespace ValidationEngineTests
             //Assert.IsTrue(result2);
         }
         [Test]
-        public void FalseForMissingNullOrMissingAdress()
+        public void FalseForEmailAddressBeingNull()
         {
             //arrange part  
             var sut = new Validator();
@@ -68,7 +68,7 @@ namespace ValidationEngineTests
 
         }
         [Test]
-        public void FalseForMissingDotCom()
+        public void FalseForEmailAddressMissingDotCom()
         {
             //arrange part  
             var sut = new Validator();
@@ -82,7 +82,7 @@ namespace ValidationEngineTests
 
         }
         [Test]
-        public void FalseForBeingEmpty()
+        public void FalseForEmailAddressMissingOrBeingEmpty()
         {
             //arrange part  
             var sut = new Validator();
@@ -96,7 +96,7 @@ namespace ValidationEngineTests
 
         }
         [Test]
-        public void FalseForContainingNumbers()
+        public void FalseForEmailAddressContainingNumbers()
         {
             //arrange part  
             var sut = new Validator();
@@ -110,7 +110,7 @@ namespace ValidationEngineTests
 
         }
         [Test]
-        public void FalseForMissingDotInDotCom()
+        public void FalseForEmailAddressMissingDotInDotCom()
         {
             //arrange part  
             var sut = new Validator();

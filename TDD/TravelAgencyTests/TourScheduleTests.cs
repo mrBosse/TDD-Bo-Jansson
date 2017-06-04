@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TravelAgencyTests
+namespace TravelAgency
 {
     [TestFixture]
     public class TourScheduleTests
@@ -13,12 +13,15 @@ namespace TravelAgencyTests
         [Test]
         public void CanCreateNewTour()
         {
-            //arr part
+            //act part
             var sut = new TourSchedule();
             sut.CreateTour(
             "New years day safari",
             new DateTime(2013, 1, 1), 20);
+            var result = sut.GetToursFor(new DateTime(2013, 1, 1));
 
+            //assert
+            Assert.AreEqual(1, result.Count);
 
         }
     }
