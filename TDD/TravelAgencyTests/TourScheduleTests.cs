@@ -22,7 +22,18 @@ namespace TravelAgency
 
             //assert
             Assert.AreEqual(1, result.Count);
-
         }
+        [Test]
+        public void ToursAreScheduledByDateOnly()
+        {
+            var sut = new TourSchedule();
+            //Act
+            sut.CreateTour("New years day safari", new DateTime(2013, 1, 1, 10, 15, 0), 20);
+            var result = sut.GetToursFor(new DateTime(2013, 1, 1));
+
+            //Assert
+            Assert.AreEqual(new DateTime(2013, 1, 1), result[0].DateOfTour.Date);
+        }
+
     }
 }
