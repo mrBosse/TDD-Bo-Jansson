@@ -10,6 +10,12 @@ namespace TravelAgency
     [TestFixture]
     public class TourScheduleTests
     {
+        private TourSchedule sut;
+        [SetUp]
+        public void Setup()
+        {
+            sut = new TourSchedule();
+        }
         [Test]
         public void CanCreateNewTour()
         {
