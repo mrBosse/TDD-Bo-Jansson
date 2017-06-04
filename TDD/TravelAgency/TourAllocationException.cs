@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TravelAgency
 {
-    class TourAllocationException : Exception
+    public class TourAllocationException : Exception
     {
         public DateTime? SuggestedTime { get; set; }
 

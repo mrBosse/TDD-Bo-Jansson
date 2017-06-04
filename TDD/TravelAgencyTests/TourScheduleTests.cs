@@ -55,6 +55,15 @@ namespace TravelAgency
             Assert.AreEqual(new DateTime(2013, 4, 1), result[0].DateOfTour.Date);
             Assert.AreEqual(1, result.Count);
         }
+        [Test]
+        public void ThrowsExceptionWhenThereIsMoreThanOneTourPerDay()
+        {
+            sut.CreateTour("Holiday Safari", new DateTime(2013, 1, 1, 10, 15, 0), 20);
+            sut.CreateTour("Christmas Safari", new DateTime(2013, 1, 1, 10, 15, 0), 20);
+            sut.CreateTour("Winter safari", new DateTime(2013, 1, 1, 10, 15, 0), 20);
+
+            Assert.Throws<TourAllocationException>(() => sut.CreateTour("Holiday Safari", new DateTime(2013, 1, 1, 10, 15, 0), 20));
+        }
 
     }
 }
